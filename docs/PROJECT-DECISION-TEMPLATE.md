@@ -1,12 +1,10 @@
-# Decision
+# Decision - {DECISION_GOES_HERE}
 
 **Status:** Accepted|InProgress|Rejected
 
 **Date:** DD/MM/YYYY
 
 **Decider's:** Spencer O'Hegarty and Aasim Ahmed
-
-**Decision:**
 
 **Description:**
 
