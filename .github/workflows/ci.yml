@@ -4,7 +4,12 @@
 name: ci
 permissions:
   contents: read
-on: [push]
+on: 
+  push:
+    paths-ignore:
+    - README.md
+    - docs/**
+    
 
 jobs:
   build:
