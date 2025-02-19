@@ -1,0 +1,52 @@
+{
+  "id": "home",
+  "PageTitle": "",
+  "PageContent": {
+    "Summary": "MEPS - Home page template"
+  },
+  "Views": [
+    {
+      "ViewId": "GDS_Table",
+      "ViewModel": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table.GDS_TableModel, DfE.FindSchoolChoices.Web",
+        "TypePropertyMap": {
+          "MergeTypeKey": "@governance.governors@",
+          "PropertiesToMap": [
+            "Title",
+            "Forename1",
+            "Surname",
+            "DateOfAppointment",
+            "DateAppointmentEnds",
+            "AppointingBody"
+          ]
+        },
+        "Rows": []
+      },
+      "ViewContent": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table.GDS_TableContent, DfE.FindSchoolChoices.Web",
+        "TabLabel": "Governance",
+        "Title": "Some title",
+        "Description": "Some Description",
+        "Headings": [
+          {
+            "Header": "Name"
+          },
+          {
+            "Header": "From"
+          },
+          {
+            "Header": "To"
+          },
+          {
+            "Header": "Appointed by"
+          }
+        ]
+      },
+      "ViewModelDataRules": [
+        {
+          "Type": "DfE.FindSchoolChoices.Web.Infrastructure.Persistence.DataTransformationRules.DisplayFullNameRule, DfE.FindSchoolChoices.Web"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+﻿
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <nav id="footer-nav">
+            <ul id="proposition-links" class="govuk-footer__inline-list">
+                <li class="govuk-footer__inline-list-item"><a class="govuk-link" id="guidance-footer-link" href="https://www.gov.uk/government/collections/school-performance-tables-about-the-data" rel="noreferrer noopener" target="_blank">Guidance</a></li>
+                <li class="govuk-footer__inline-list-item"><a class="govuk-link" id="download-data-footer-link" href="">Download data (1991-2023)</a></li>
+                <li class="govuk-footer__inline-list-item">
+                    <a class="govuk-link" id="publication-timetable-footer-link" href="">
+                        Publication timetable
+                    </a>
+                </li>
+                <li class="govuk-footer__inline-list-item hidden" id="print-link-parent"><a class="govuk-link" id="print-footer-link" onclick="print()" href="#">Print this page</a></li>
+            </ul>
+        </nav>
+        <a id="osr-footer-link" href="https://osr.statisticsauthority.gov.uk/national-statistics/" class="national-stat-logo" target="_blank" rel="noreferrer noopener"><img src="/assets/images/ns_logo.png" alt="The figures on this page are National Statistics. Learn more about National Statistics on the Office for National Statistics website." id="osr-footer-image"> <span class="visuallyhidden"> opens in a new window </span></a>
+    </div>
+</div>
+
+<govuk-details class="govuk-!-margin-top-3">
+    <govuk-details-summary>
+        Is there anything wrong with this page?
+    </govuk-details-summary>
+    <govuk-details-text>
+        <div id="FeedbackForm" class="report-a-problem-container" aria-expanded="false">
+            <h2 class="bold-medium">Help us improve GOV.UK</h2>
+
+            <div class="form-group">
+                <div id="errorContainer" class="validationError">
+                    <p id="FormErrorMessage"></p>
+                </div>
+
+                <h2 class="bold-small">Ofsted data incorrect?</h2>
+                <p>
+                    It typically takes 1 to 2 months, and can take longer in some circumstances, for Ofsted data to be made available and updated here following an inspection.<br>
+                    For the very latest Ofsted data, please visit the <a href="http://ofsted.gov.uk">Ofsted website</a><br>
+                </p>
+                <h2 class="bold-small">School information incorrect?</h2>
+                <p>
+                    Information such as headteacher's name, school website, address, location on the map, gender, age-range and school type also typically take 1 to 2 months to be updated here after first being updated, by the school, in <a href="https://get-information-schools.service.gov.uk/">Get information about schools</a>. If information is incorrect in Get information about schools, please report it to the school.
+                </p>
+                <h2 class="bold-small">Report a problem</h2>
+
+                <p>This form is for reporting problems with the Find school and college performance data in England section of the GOV.UK website.</p>
+                <p>Don't include any personal or financial information, for example your National Insurance number or credit card details.</p>
+                <p>
+                    To make a complaint about a school, or a general complaint or enquiry,
+                    <a href="https://www.gov.uk/contact-dfe" target="_blank">contact the Department for Education <span class="visually-hidden">This link opens in a new window</span></a>.
+                    Illegal behaviour should be reported to the police.
+                </p>
+
+                <form id="feedback-form" accept-charset="UTF-8" action="/feedback/submit" method="post">
+
+                    <div id="nameContainer">
+                        <label for="Name" aria-hidden="true">Keep this field blank</label>
+                        <input type="text" id="name" name="Name" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    </div>
+
+
+                    <fieldset class="inline">
+                        <legend class="visuallyhidden">Help us improve GOV.UK</legend>
+
+                        <div class="form-group">
+                            <label class="form-label" for="WhatYouWereDoing">What you were doing</label>
+                            <p>Please explain, step by step, what you did. If we can reproduce a problem, we can try to fix it.</p>
+                            <textarea class="form-control feedback-control" id="WhatYouWereDoing" name="WhatYouWereDoing" maxlength="300" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="WhatWentWrong">What went wrong</label>
+                            <p>Please explain what you expected to happen, and what actually happened. A clear explanation will help us fix the problem.</p>
+                            <textarea class="form-control feedback-control" id="WhatWentWrong" name="WhatWentWrong" maxlength="300" rows="3"></textarea>
+                        </div>
+
+
+                        <div class="button-wrapper">
+                            <button id="submitFeedback" name="commit" type="submit" class="button">Send</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+            <div id="FeedbackSuccess" class="visuallyhidden" aria-hidden="true">
+                <h2 class="bold-medium">Thank you for your help</h2>
+            </div>
+
+            <div id="FeedbackError" class="visuallyhidden" aria-hidden="true">
+                <h2 class="bold-medium">An error occurred while processing your feedback submission</h2>
+                <p>Please try again</p>
+            </div>
+        </div>
+    </govuk-details-text>
+</govuk-details>

@@ -1,0 +1,8 @@
+﻿@using DfE.Common.Presentation.PageTemplates.Application.Model
+
+@model PageTemplate
+ 
+@foreach (IPageView viewComponent in Model.Views)
+{
+    @await Html.PartialAsync(viewComponent.ViewId, viewComponent)
+}

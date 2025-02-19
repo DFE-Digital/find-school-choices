@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DfE.FindSchoolChoices.Web",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DfE.FindSchoolChoices.Web.IntegrationTests", "tests\WebIntegrationTests\DfE.FindSchoolChoices.Web.IntegrationTests.csproj", "{C3A3194D-D1C2-4734-8DA8-33827ED99850}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DfE.Common.Presentation.PageTemplates", "src\Common\Presentation\PageTemplates\DfE.Common.Presentation.PageTemplates.csproj", "{5E22391D-6473-4AEC-B97F-4612C80857E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C3A3194D-D1C2-4734-8DA8-33827ED99850}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A3194D-D1C2-4734-8DA8-33827ED99850}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A3194D-D1C2-4734-8DA8-33827ED99850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E22391D-6473-4AEC-B97F-4612C80857E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E22391D-6473-4AEC-B97F-4612C80857E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E22391D-6473-4AEC-B97F-4612C80857E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E22391D-6473-4AEC-B97F-4612C80857E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

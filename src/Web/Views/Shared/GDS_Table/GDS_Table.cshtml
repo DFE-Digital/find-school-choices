@@ -1,0 +1,36 @@
+﻿﻿@using System.Dynamic
+@using DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
+@using DfE.Common.Presentation.PageTemplates.Application.Model
+
+@{
+    Layout = "_Layout";
+}
+
+@model PageView
+@{
+    GDS_TableModel? viewModel = Model.ViewModel as GDS_TableModel;
+    GDS_TableContent? content = Model.ViewContent as GDS_TableContent;
+}
+
+<table class="govuk-table-datatables" id="" style="width:100%">
+    <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+            @foreach (var heading in content.Headings)
+            {
+                <th scope="col" class="govuk-table__header">@heading.Header</th>
+            }
+        </tr>
+    </thead>
+    
+    <tbody class="govuk-table__body">
+        @foreach (var row in viewModel.Rows)
+        {
+            <tr class="govuk-table__row">
+                @foreach (var field in row.Fields)
+                {
+                    <td class="govuk-table__cell">@field.Value</td>
+                }
+            </tr>    
+        }
+    </tbody>
+</table>

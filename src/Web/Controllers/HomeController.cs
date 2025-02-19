@@ -1,18 +1,61 @@
+using DfE.Common.Presentation.PageTemplates.Application.UseCases;
+using DfE.Common.Presentation.PageTemplates.Presentation;
+using DfE.FindSchoolChoices.Core.Application.UseCase;
+using DfE.FindSchoolChoices.Core.CrossCuttingConcerns.Json.Serialisation;
+using DfE.FindSchoolChoices.Web.Infrastructure.Persistence.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DfE.FindSchoolChoices.Web.Controllers;
 
-public class HomeController : Controller
+public class HomeController : DynamicPageController
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IUseCase<GetPageTemplateRequest, PageTemplateResponse> _getPageTemplateWithDataUseCase;
+    private readonly IDataAggregator _dataAggregator;
 
-    public HomeController(ILogger<HomeController> logger)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="logger"></param>
+    /// <param name="jsonObjectSerialiser"></param>
+    /// <param name="getPageTemplateWithDataUseCase"></param>
+    /// <param name="dataAggregator"></param>
+    public HomeController(
+        ILogger<HomeController> logger,
+        IJsonObjectSerialiser jsonObjectSerialiser,
+        IUseCase<GetPageTemplateRequest, PageTemplateResponse> getPageTemplateWithDataUseCase,
+        IDataAggregator dataAggregator)
     {
         _logger = logger;
+        _getPageTemplateWithDataUseCase = getPageTemplateWithDataUseCase;
+        _dataAggregator = dataAggregator;
     }
 
-    public IActionResult Index()
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public async Task<IActionResult> Index()
     {
-        return View();
+        const string urn = "100000";
+        const string pagename = "home";
+
+        IDictionary<string, object> dataDictionary =
+            await _dataAggregator
+                .GetAllDataPointsInParallel(
+                    new List<KeyValuePair<string, Task<object>>>()
+                    {
+                            _dataAggregator.GetDataRequestByIdTask(urn, "establishments"),
+                            _dataAggregator.GetDataRequestByIdTask(urn, "governance")
+                    }
+                    .ToDictionary(
+                        kvp => kvp.Key,
+                        kvp => kvp.Value));
+
+        PageTemplateResponse pageTemplateResponse =
+            await _getPageTemplateWithDataUseCase
+                .HandleRequest(new GetPageTemplateRequest(pagename, dataDictionary));
+
+        return DynamicPageView(pageTemplateResponse.PageTemplate);
     }
 }
