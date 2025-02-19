@@ -4,7 +4,7 @@
 name: ci
 permissions:
   contents: read
-  packages: read
+  packages: write
 on: 
   push:
     paths-ignore:
