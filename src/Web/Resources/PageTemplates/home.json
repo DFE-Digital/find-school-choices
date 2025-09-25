@@ -6,47 +6,110 @@
   },
   "Views": [
     {
-      "ViewId": "GDS_Table",
-      "ViewModel": {
-        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table.GDS_TableModel, DfE.FindSchoolChoices.Web",
-        "TypePropertyMap": {
-          "MergeTypeKey": "@governance.governors@",
-          "PropertiesToMap": [
-            "Title",
-            "Forename1",
-            "Surname",
-            "DateOfAppointment",
-            "DateAppointmentEnds",
-            "AppointingBody"
-          ]
-        },
-        "Rows": []
-      },
+      "ViewId": "GDS_Breadcrumbs",
       "ViewContent": {
-        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table.GDS_TableContent, DfE.FindSchoolChoices.Web",
-        "TabLabel": "Governance",
-        "Title": "Some title",
-        "Description": "Some Description",
-        "Headings": [
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Breadcrumbs.GDS_BreadcrumbsContent, DfE.FindSchoolChoices.Web",
+        "Links": [
           {
-            "Header": "Name"
+            "Text": "Home",
+            "Href": "#"
           },
           {
-            "Header": "From"
+            "Text": "Link 2",
+            "Href": "#"
           },
           {
-            "Header": "To"
-          },
-          {
-            "Header": "Appointed by"
+            "Text": "Link 3",
+            "Href": "#"
           }
         ]
-      },
-      "ViewModelDataRules": [
-        {
-          "Type": "DfE.FindSchoolChoices.Web.Infrastructure.Persistence.DataTransformationRules.DisplayFullNameRule, DfE.FindSchoolChoices.Web"
-        }
-      ]
+      }
+    },
+    {
+      "ViewId": "MOJ_SideNavigation",
+      "ViewContent": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.MOJ_SideNavigation.MOJ_SideNavigationContent, DfE.FindSchoolChoices.Web",
+        "Links": [
+          {
+            "Text": "About the school",
+            "Href": "#"
+          },
+          {
+            "Text": "Admissions",
+            "Href": "#"
+          },
+          {
+            "Text": "Curriculum and extra curricular activities",
+            "Href": "#"
+          },
+          {
+            "Text": "Attendance",
+            "Href": "#"
+          },
+          {
+            "Text": "Academic performance",
+            "Href": "#"
+          },
+          {
+            "Text": "Destinations",
+            "Href": "#"
+          }
+        ]
+      }
+    },
+    {
+      "ViewId": "GDS_SummaryList",
+      "ViewModel": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_SummaryList.GDS_SummaryListModel, DfE.FindSchoolChoices.Web",
+        "Heading": "About the school",
+        "Data": [
+          {
+            "Key": "Name",
+            "Value": "@establishments.EstablishmentName@"
+          },
+          {
+            "Key": "Academy trust",
+            "Value": "@establishments.['Trusts (name)']@ \r\n (updated in 2024)"
+          },
+          {
+            "Key": "Website",
+            "Value": "@establishments.SchoolWebsite@"
+          },
+          {
+            "Key": "TelephoneNum",
+            "Value": "@establishments.TelephoneNum@"
+          }
+        ]
+      }
+    },
+    {
+      "ViewId": "GDS_SummaryList",
+      "ViewModel": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_SummaryList.GDS_SummaryListModel, DfE.FindSchoolChoices.Web",
+        "Heading": "Location",
+        "Data": [
+          {
+            "Key": "Address",
+            "Value": "@establishments.Street@, @establishments.Locality@, @establishments.Town@, @establishments.Postcode@"
+          },
+          {
+            "Key": "Local authority",
+            "Value": "@establishments.LA_name@"
+          },
+          {
+            "Key": "Your distance from this school",
+            "Value": "1.2 miles"
+          }
+        ]
+      }
+    },
+    {
+      "ViewId": "GDS_Details",
+      "ViewContent": {
+        "Type": "DfE.FindSchoolChoices.Web.Views.Shared.GDS_Details.GDS_DetailsContent, DfE.FindSchoolChoices.Web",
+        "Summary": "View this information on a map",
+        "Description": ""
+      }
     }
   ]
 }

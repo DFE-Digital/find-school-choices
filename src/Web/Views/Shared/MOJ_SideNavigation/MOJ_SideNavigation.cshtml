@@ -1,0 +1,32 @@
+﻿@using DfE.Common.Presentation.PageTemplates.Application.Models
+@using DfE.FindSchoolChoices.Web.Views.Shared.MOJ_SideNavigation
+
+@model PageView
+
+@{
+    MOJ_SideNavigationContent? content = Model.ViewContent as MOJ_SideNavigationContent;
+}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+            <ul class="moj-side-navigation__list">
+                <li class="moj-side-navigation__item moj-side-navigation__item--active">
+                    <a href="#1" aria-current="location">Nav item 1</a>
+                </li>
+
+                <li class="moj-side-navigation__item">
+                    <a href="#2">Nav item 2</a>
+                </li>
+
+                <li class="moj-side-navigation__item">
+                    <a href="#3">Nav item 3</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+</div>

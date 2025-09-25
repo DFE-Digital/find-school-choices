@@ -1,0 +1,19 @@
+﻿@using DfE.Common.Presentation.PageTemplates.Application.Models
+@using DfE.FindSchoolChoices.Web.Views.Shared
+@using DfE.FindSchoolChoices.Web.Views.Shared.GDS_Breadcrumbs
+@model PageView
+
+@{
+    GDS_BreadcrumbsContent? content = Model.ViewContent as GDS_BreadcrumbsContent;
+}
+
+<nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+        @foreach (var crumb in content?.Links ?? Enumerable.Empty<AnchorLink>())
+        {
+            <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="@crumb.Href">@crumb.Text</a>
+            </li>
+        }
+    </ol>
+</nav>

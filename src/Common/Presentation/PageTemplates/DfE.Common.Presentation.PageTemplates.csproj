@@ -28,9 +28,5 @@
     <EmbeddedResource Include="Presentation\Views\Shared\Components\DynamicPage\Default.cshtml" />
     <EmbeddedResource Include="Presentation\Views\Shared\DynamicPageView.cshtml" />
   </ItemGroup>
-	
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\DfE.FindSchoolChoices.Core.csproj" />
-  </ItemGroup>
 
 </Project>

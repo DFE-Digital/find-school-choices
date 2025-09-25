@@ -1,4 +1,4 @@
-﻿using DfE.Common.Presentation.PageTemplates.Application.Model;
+﻿using DfE.Common.Presentation.PageTemplates.Application.Models;
 using Newtonsoft.Json.Linq;
 
 namespace DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
@@ -26,7 +26,7 @@ namespace DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<IRow> Rows { get; set; } = [];
+        public List<IRow> Rows { get; set; } = [];
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
             /// </summary>
             /// <param name="fields"></param>
             /// <param name="propertiesToMap"></param>
-            public Row(IList<KeyValuePair<string, JToken>> fields, IEnumerable<string> propertiesToMap)
+            public Row(List<KeyValuePair<string, JToken>> fields, IEnumerable<string> propertiesToMap)
             {
                 Fields =
                     fields.Where(field =>
@@ -68,24 +68,6 @@ namespace DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
             /// 
             /// </summary>
             public List<KeyValuePair<string, object>> Fields { get; }
-
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="field"></param>
-            public void AddField(KeyValuePair<string, object> field)
-            {
-                Fields.Insert(0, field);
-            }
-
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="key"></param>
-            public void RemoveField(string key)
-            {
-                Fields.RemoveAll(field => field.Key == key);
-            }
         }
     }
 }
@@ -99,10 +81,4 @@ public interface IRow
     /// 
     /// </summary>
     List<KeyValuePair<string, object>> Fields { get; }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="field"></param>
-    void AddField(KeyValuePair<string, object> field);
 }

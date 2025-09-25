@@ -1,0 +1,23 @@
+﻿@using DfE.Common.Presentation.PageTemplates.Application.Models
+@using DfE.FindSchoolChoices.Web.Views.Shared.GDS_SummaryList
+
+@model PageView
+
+@{
+    GDS_SummaryListModel? content = Model.ViewModel as GDS_SummaryListModel;
+}
+
+<h2>@content?.Heading</h2>
+<dl class="govuk-summary-list">
+    @foreach (var item in content?.Data ?? Enumerable.Empty<SummaryListEntry>())
+    {
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+                @item.Key
+            </dt>
+            <dd class="govuk-summary-list__value">
+                @item.Value
+            </dd>
+        </div>
+    }
+</dl>

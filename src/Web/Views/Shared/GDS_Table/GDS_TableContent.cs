@@ -1,4 +1,4 @@
-﻿using DfE.Common.Presentation.PageTemplates.Application.Model;
+﻿using DfE.Common.Presentation.PageTemplates.Application.Models;
 
 namespace DfE.FindSchoolChoices.Web.Views.Shared.GDS_Table
 {

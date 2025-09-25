@@ -1,7 +1,8 @@
-using DfE.Common.Presentation.PageTemplates.Application.UseCases;
-using DfE.Common.Presentation.PageTemplates.Presentation;
-using DfE.FindSchoolChoices.Core.Application.UseCase;
-using DfE.FindSchoolChoices.Core.CrossCuttingConcerns.Json.Serialisation;
+using Dfe.Core.CrossCuttingConcerns.Json.Serialisation;
+using DfE.Common.Presentation.PageTemplates.Application.UseCases.Request;
+using DfE.Common.Presentation.PageTemplates.Application.UseCases.Response;
+using DfE.Common.Presentation.PageTemplates.View.Presentation;
+using DfE.Core.CleanArchitecture.Application.UseCase;
 using DfE.FindSchoolChoices.Web.Infrastructure.Persistence.Data;
 using Microsoft.AspNetCore.Mvc;
 

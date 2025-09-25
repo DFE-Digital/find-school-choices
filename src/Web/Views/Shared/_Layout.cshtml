@@ -9,6 +9,7 @@
     <meta property="og:image" content="&lt;YOUR-DOMAIN&gt;/images/govuk-opengraph-image.png">
     <meta name="robots" content="noindex, nofollow">
     <link href="~/css/govuk-frontend.min.css" rel="stylesheet" />
+    <link href="~/css/moj-frontend.min.css" rel="stylesheet">
     <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="mask-icon" href="assets/images/govuk-mask-icon.svg" color="blue">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/govuk-apple-touch-icon-180x180.png">
@@ -63,13 +64,13 @@
                     <ul id="navigation" class="govuk-header__navigation-list">
                         <li class="govuk-header__navigation-item">
                             <a class="govuk-header__link"
-                                href="">
+                               href="">
                                 Page 1
                             </a>
                         </li>
                         <li class="govuk-header__navigation-item">
                             <a class="govuk-header__link"
-                                href="">
+                               href="">
                                 Page 2
                             </a>
                         </li>
@@ -81,7 +82,7 @@
                         </li>
                         <li class="govuk-header__navigation-item">
                             <a class="govuk-header__link"
-                                href="">
+                               href="">
                                 Page 4
                             </a>
                         </li>
@@ -106,23 +107,24 @@
                     <ul class="govuk-footer__inline-list">
                         <li class="govuk-footer__inline-list-item">
                             <a class="govuk-footer__link" id="contact-footer-link"
-                                href="https://www.gov.uk/contact-dfe?_ga=2.43646309.1503562437.1701431619-940600925.1700588828"
-                                target="_blank">Contact <span class="visually-hidden">This link opens in a new window</span>
+                               href="https://www.gov.uk/contact-dfe?_ga=2.43646309.1503562437.1701431619-940600925.1700588828"
+                               target="_blank">
+                                Contact <span class="visually-hidden">This link opens in a new window</span>
                             </a>
                         </li>
                         <li class="govuk-footer__inline-list-item">
 
-                            <a class="govuk-footer__link" id="privacy-footer-link" href="@Url.Action("Index", "StaticPages", new {pageName = "privacy"})">
+                            <a class="govuk-footer__link" id="privacy-footer-link" href="@Url.Action("Index", "StaticPages", new { pageName = "privacy" })">
                                 Privacy
                             </a>
                         </li>
                         <li class="govuk-footer__inline-list-item">
-                            <a class="govuk-footer__link" id="cookies-footer-link" href="@Url.Action("Index", "StaticPages", new {pageName = "cookies"})">
+                            <a class="govuk-footer__link" id="cookies-footer-link" href="@Url.Action("Index", "StaticPages", new { pageName = "cookies" })">
                                 Cookies
                             </a>
                         </li>
                         <li class="govuk-footer__inline-list-item">
-                            <a class="govuk-footer__link" id="accessibility-footer-link" href="@Url.Action("Index", "StaticPages", new {pageName = "accessibility"})">
+                            <a class="govuk-footer__link" id="accessibility-footer-link" href="@Url.Action("Index", "StaticPages", new { pageName = "accessibility" })">
                                 Accessibility statement
                             </a>
                         </li>

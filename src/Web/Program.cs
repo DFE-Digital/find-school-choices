@@ -1,10 +1,10 @@
-using Dfe.Common.Presentation.PageTemplates;
+using Dfe.Common.Presentation.PageTemplates.Application.Repositories;
+using Dfe.Core.CrossCuttingConcerns.DependencyInjection;
 using Dfe.Presentation.PageTemplates.Web.Prototype.Views;
-using DfE.Common.Presentation.PageTemplates.Application.Model;
-using DfE.Common.Presentation.PageTemplates.Application.Repositories;
-using DfE.Common.Presentation.PageTemplates.Presentation.Views.Shared.Components;
+using DfE.Common.Presentation.PageTemplates;
+using DfE.Common.Presentation.PageTemplates.Application.Models;
+using DfE.Common.Presentation.PageTemplates.View.Presentation.Views.Shared.Components;
 using DfE.Data.ComponentLibrary.Infrastructure.Persistence.CosmosDb;
-using DfE.FindSchoolChoices.Core.DependencyInjection;
 using DfE.FindSchoolChoices.Web.Infrastructure.Persistence.Data;
 using DfE.FindSchoolChoices.Web.Infrastructure.Persistence.DataTransformationRules;
 using DfE.FindSchoolChoices.Web.Infrastructure.Persistence.PageTemplates;

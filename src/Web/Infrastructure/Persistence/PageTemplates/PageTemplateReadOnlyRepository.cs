@@ -1,9 +1,9 @@
-﻿using Dfe.Data.Common.Infrastructure.Persistence.CosmosDb.Options;
+﻿using Dfe.Common.Presentation.PageTemplates.Application.Repositories;
+using Dfe.Core.CrossCuttingConcerns.Json.Serialisation;
+using Dfe.Data.Common.Infrastructure.Persistence.CosmosDb.Handlers.Query;
+using Dfe.Data.Common.Infrastructure.Persistence.CosmosDb.Options;
 using Dfe.Data.Common.Infrastructure.Persistence.CosmosDb.Options.Extensions;
-using Dfe.Data.Common.Infrastructure.Persistence.CosmosDb.Repositories;
-using DfE.Common.Presentation.PageTemplates.Application.Model;
-using DfE.Common.Presentation.PageTemplates.Application.Repositories;
-using DfE.FindSchoolChoices.Core.CrossCuttingConcerns.Json.Serialisation;
+using DfE.Common.Presentation.PageTemplates.Application.Models;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 
@@ -15,7 +15,7 @@ namespace DfE.FindSchoolChoices.Web.Infrastructure.Persistence.PageTemplates
     public sealed class PageTemplateReadOnlyRepository : IPageTemplateReadOnlyRepository
     {
         private readonly ContainerOptions _containerOptions;
-        private readonly IReadOnlyRepository _readOnlyRepository;
+        private readonly ICosmosDbQueryHandler _cosmosDbQueryHandler; // Handles Cosmos DB queries
         private readonly IJsonObjectSerialiser _jsonObjectSerialiser;
 
         /// <summary>
@@ -30,12 +30,12 @@ namespace DfE.FindSchoolChoices.Web.Infrastructure.Persistence.PageTemplates
         /// <param name="readOnlyRepository"></param>
         public PageTemplateReadOnlyRepository(
             IOptions<RepositoryOptions> repositoryOptions,
-            IReadOnlyRepository readOnlyRepository,
+            ICosmosDbQueryHandler cosmosDbQueryHandler,
             IJsonObjectSerialiser jsonObjectSerialser)
         {
             ArgumentNullException.ThrowIfNull(nameof(repositoryOptions.Value));
             _containerOptions = repositoryOptions.Value.GetContainerOptions(Container);
-            _readOnlyRepository = readOnlyRepository;
+            _cosmosDbQueryHandler = cosmosDbQueryHandler;
             _jsonObjectSerialiser = jsonObjectSerialser;
         }
 
@@ -49,11 +49,16 @@ namespace DfE.FindSchoolChoices.Web.Infrastructure.Persistence.PageTemplates
             ArgumentException.ThrowIfNullOrEmpty(_containerOptions.ContainerName);
 
             JToken? pageTemplateStructure =
-                await _readOnlyRepository.GetItemByIdAsync<JToken>(
-                    pageTemplateName, _containerOptions.ContainerName)
-                            .ConfigureAwait(false);
+                await _cosmosDbQueryHandler.ReadItemByIdAsync<JToken>(
+                    pageTemplateName, _containerOptions.ContainerName, pageTemplateName)
+                            .ConfigureAwait(false) ??
+                                throw new InvalidOperationException($"Page template '{pageTemplateName}' not found.");
 
-            return _jsonObjectSerialiser.DeserializeString<PageTemplate>(pageTemplateStructure.ToString());
+            PageTemplate result =
+                _jsonObjectSerialiser.DeserializeString<PageTemplate>(pageTemplateStructure.ToString()) ??
+                throw new InvalidOperationException($"Failed to deserialize page template '{pageTemplateName}'.");
+
+            return result;
         }
     }
 }

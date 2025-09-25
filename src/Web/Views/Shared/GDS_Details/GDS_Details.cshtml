@@ -1,0 +1,19 @@
+﻿@using DfE.Common.Presentation.PageTemplates.Application.Models
+@using DfE.FindSchoolChoices.Web.Views.Shared.GDS_Details
+
+@model PageView
+
+@{
+    GDS_DetailsContent? content = Model.ViewContent as GDS_DetailsContent;
+}
+
+<details class="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            @content.Summary
+        </span>
+    </summary>
+    <div class="govuk-details__text">
+        @content.Description
+    </div>
+</details>

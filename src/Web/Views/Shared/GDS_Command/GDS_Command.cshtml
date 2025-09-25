@@ -1,0 +1,43 @@
+﻿﻿@using System.Dynamic
+@using DfE.Common.Presentation.PageTemplates.Application.Models
+@using DfE.FindSchoolChoices.Web.Views.Shared.GDS_Command
+
+@{
+    Layout = "_Layout";
+}
+
+@model PageView
+@{
+    GDS_CommandModel? viewModel = Model.ViewModel as GDS_CommandModel;
+    GDS_CommandContent? content = Model.ViewContent as GDS_CommandContent;
+}
+
+<form asp-controller="@viewModel.Controller" asp-action="@viewModel.Action" method="post">
+    @foreach (var param in viewModel.Parameters)
+    {
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+                <label class="govuk-label govuk-label--l" for="@param.Key">
+                    @content.ButtonLabel
+                </label>
+            </h1>
+
+            @for (int i = 0; i < viewModel.CommandHandlers.Count; i++)
+            {
+                <input
+                    type="hidden"
+                    name="CommandHandlers[@i].HandlerKey"
+                    value="@viewModel.CommandHandlers[i].HandlerKey" />
+            }
+
+            <input
+                class="govuk-input"
+                id="@param.Key"
+                name="Parameters[@param.Key]"
+                type="text" />
+        </div>
+    }
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+        @content.ButtonLabel
+    </button>
+</form>
